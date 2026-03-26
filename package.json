@@ -6,11 +6,10 @@
   "homepage": "https://github.com/jh7764/clgenerator",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npx run build"
   },
   "dependencies": {
     "@google/genai": "^1.46.0",
