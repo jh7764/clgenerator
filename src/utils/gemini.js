@@ -1,5 +1,4 @@
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY
-const BASE_URL =  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent"
+const BASE_URL =  "/api/gemini"
 export const callGemini = async(prompt, pdfBase64 = null) => {
     const parts =[];
 
