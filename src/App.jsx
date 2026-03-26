@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { callGemini } from '../api/gemini'
+import { callGemini } from './utils/gemini'
 import Story from './components/Story'
 import ResumeUpload from './components/ResumeUpload'
 import JobDescription from './components/JobDescription'
