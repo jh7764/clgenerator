@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npx run build"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@google/genai": "^1.46.0",
