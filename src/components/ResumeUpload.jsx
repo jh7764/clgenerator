@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { callGemini } from '../api/gemini'
+import { callGemini } from '../utils/gemini'
 
 
 function ResumeUpload({ onParsed }){
