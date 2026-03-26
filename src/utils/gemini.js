@@ -10,7 +10,7 @@ export const callGemini = async(prompt, pdfBase64 = null) => {
 
     parts.push({ text: prompt });
 
-    const res = await fetch(`${BASE_URL}?key=${API_KEY}`, {
+    const res = await fetch(BASE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
