@@ -15,7 +15,7 @@ A student-built cover letter that uses inputed resume, job description, and an o
 - **CSS** — custom styling
 - **JavaScript**
 - **Gemini API**
-- **Deployed by Vercel**
+- **Deployed by Vercel** - https://clgenerator.vercel.app/
 
 ## Questions or Suggestions?
 
