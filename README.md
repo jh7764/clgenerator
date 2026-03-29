@@ -6,7 +6,7 @@ A student-built cover letter that uses inputted resume, job description, and an 
 
 - **Resume** - PDF only
 - **Job Description** - copy and paste job description from desired job post
-- **Personal Story** - add a personal ancedote, or achievement you want to highlight
+- **Personal Story** - add a personal anecdote, or achievement you want to highlight
 - **Generated CL** - copy and paste AI generated personalized CL 
 
 ## Tech Stack
