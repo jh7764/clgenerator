@@ -1,6 +1,6 @@
 # Covey CL Generator - powered by Gemini AI
 
-A student-built cover letter that uses inputed resume, job description, and an optional ancedote or skills to generate a tailored, and compelling resume.
+A student-built cover letter that uses inputted resume, job description, and an optional anecdote or skills to generate a tailored, and compelling resume.
 
 # What's Inside
 
