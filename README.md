@@ -11,8 +11,8 @@ A student-built cover letter that uses inputed resume, job description, and an o
 
 ## Tech Stack
 
-- **React** — component-based UI
-- **CSS** — custom styling
+- **React** - component-based UI
+- **CSS** - custom styling
 - **JavaScript**
 - **Gemini API**
 - **Deployed by Vercel** - https://clgenerator.vercel.app/
