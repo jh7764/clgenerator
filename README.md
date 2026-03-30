@@ -22,7 +22,6 @@ A student-built cover letter that uses inputted resume, job description, and an 
 Have something to fix? Reach out at jenna.hayek001@umb.edu
 
 ## Incoming additions
-- Loader when AI is thinking...
 - Input job website for more efficiency, and have AI go through company's values
 - Download CL as a PDF
 - Better prompt for higher quality output
