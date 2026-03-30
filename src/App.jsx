@@ -12,8 +12,10 @@ function App() {
   const [story, setStory] = useState('')
   const [jobDescription, setjobDescription] = useState('')
   const [coverLetter, setcoverLetter] = useState('')
+  const [loading, setloading] = useState(false)
   
   async function generate(){
+    setloading(true)
     const letter = await callGemini(
       `You are an expert cover letter writer. 
       RESUME: 
@@ -55,6 +57,7 @@ function App() {
     )
 
     setcoverLetter(letter)
+    setloading(false)
   }
 
   return(
@@ -89,7 +92,7 @@ function App() {
       </div>
 
       <button className={`generate-btn ${!resume || !jobDescription ? '' : ''}`} onClick={generate}>
-        Generate Cover Letter
+        {loading ? "Generating..." : "Generate Cover Letter"}
       </button>
 
       {coverLetter && (
