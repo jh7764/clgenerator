@@ -238,7 +238,7 @@ textarea::placeholder {
   border: 1px solid var(--border);
 }
 
-.copy-btn .download-btn {
+.download-btn, .copy-btn {
   padding: 12px 28px;
   background: var(--accent);
   border: 1px solid var(--primary-dark);
@@ -251,7 +251,7 @@ textarea::placeholder {
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.copy-btn:hover .download-btn:hover {
+.copy-btn:hover {
   background: var(--primary);
   color: #fff;
   transform: translateY(-1px);
