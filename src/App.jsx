@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { callGemini } from './utils/gemini'
+import { Document, Page, Text, PDFDownloadLink } from '@react-pdf/renderer'
 import Story from './components/Story'
 import ResumeUpload from './components/ResumeUpload'
 import JobDescription from './components/JobDescription'
 import './App.css'
-
-
 
 function App() {
   const [resume, setResume] = useState(null)
@@ -102,11 +101,21 @@ function App() {
           <button className="copy-btn" onClick={() => navigator.clipboard.writeText(coverLetter)}>
             Copy to Clipboard
           </button>
+          <PDFDownloadLink 
+              document={
+                <Document>
+                  <Page size="A4">
+                    <Text>{coverletter}</Text>
+                  </Page>
+                </Document>
+              } fileName="CLbyCovey.pdf">
+          </PDFDownloadLink>
         </div>
       )}
     </div>
   )
 }
+
 
 
 export default App;
