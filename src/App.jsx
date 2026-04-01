@@ -104,13 +104,12 @@ function App() {
           <PDFDownloadLink 
               document={
                 <Document>
-                  <Page size="A4">
+                  <Page size="A4" className="pdf-page">
                     <Text>{coverLetter}</Text>
                   </Page>
                 </Document>
               } fileName="CLbyCovey.pdf">
-
-                <button>Download</button>
+              <button className="download-btn">Download PDF version</button>
           </PDFDownloadLink>
         </div>
       )}
