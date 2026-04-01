@@ -109,6 +109,8 @@ function App() {
                   </Page>
                 </Document>
               } fileName="CLbyCovey.pdf">
+
+                <button>Download</button>
           </PDFDownloadLink>
         </div>
       )}
