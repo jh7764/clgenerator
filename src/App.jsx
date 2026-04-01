@@ -105,7 +105,7 @@ function App() {
               document={
                 <Document>
                   <Page size="A4">
-                    <Text>{coverletter}</Text>
+                    <Text>{coverLetter}</Text>
                   </Page>
                 </Document>
               } fileName="CLbyCovey.pdf">
