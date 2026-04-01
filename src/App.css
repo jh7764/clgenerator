@@ -202,6 +202,7 @@ textarea::placeholder {
   animation: pulse 1.2s ease-in-out infinite;
 }
 
+
 /* Output section */
 .output {
   margin-top: 40px;
@@ -237,10 +238,10 @@ textarea::placeholder {
   border: 1px solid var(--border);
 }
 
-.copy-btn {
+.copy-btn, .download-btn {
   padding: 12px 28px;
-  background: transparent;
-  border: 1px solid var(--primary);
+  background: var(--accent);
+  border: 1px solid var(--primary-dark);
   border-radius: 10px;
   color: var(--primary);
   font-family: var(--font-display);
@@ -250,11 +251,12 @@ textarea::placeholder {
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.copy-btn:hover {
+.copy-btn:hover , .download:hover {
   background: var(--primary);
   color: #fff;
   transform: translateY(-1px);
 }
+
 
 /* Animations */
 @keyframes fadeUp {
