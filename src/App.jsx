@@ -26,7 +26,8 @@ function App() {
       PERSONAL STORY:
       ${story}
 
-      Follow this format to create a tailored, personal, and compelling cover letter for the posiiton. 
+      Follow this exact format to create a tailored, personal, and compelling cover letter for the posiiton:
+      
       Name
       Contact Info
 
@@ -65,7 +66,7 @@ function App() {
       Name
       
       Make sure it is ATS compatible. Include creative ways to show passion for industry and personal story to make it narrative-like. Don't include any oxford-commas. 
-      Get person's name through their resume.
+      Get person's name and contact info through their resume.
       `
     )
 
