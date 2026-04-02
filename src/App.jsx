@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { callGemini } from './utils/gemini'
-import { Document, Page, Text, PDFDownloadLink } from '@react-pdf/renderer'
+import { Document, Page, Text, PDFDownloadLink, StyleSheet, Font } from '@react-pdf/renderer'
 import Story from './components/Story'
 import ResumeUpload from './components/ResumeUpload'
 import JobDescription from './components/JobDescription'
@@ -59,6 +59,17 @@ function App() {
     setloading(false)
   }
 
+  const styles = StyleSheet.create({
+    page: {
+      padding: 40,
+    },
+    text: {
+      fontSize: 12,
+      margin: 1,
+      fontFamily: 'Times-Roman',
+    }
+
+  })
   return(
     <div className="app">
       <div className="app-header">
@@ -104,8 +115,8 @@ function App() {
           <PDFDownloadLink 
               document={
                 <Document>
-                  <Page size="A4" className="pdf-page">
-                    <Text>{coverLetter}</Text>
+                  <Page size="A4" style={styles.page}>
+                    <Text style={styles.text}>{coverLetter}</Text>
                   </Page>
                 </Document>
               } fileName="CLbyCovey.pdf">
