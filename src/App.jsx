@@ -27,6 +27,16 @@ function App() {
       ${story}
 
       Follow this format to create a tailored, personal, and compelling cover letter for the posiiton. 
+      Name
+      Contact Info
+
+      Date
+
+      Hiring Team
+      Company Name
+      Company Location (city, country)
+
+      Dear Hiring Team, 
 
       1st / Introductory Paragraph
       • Introduce me and grab the employer’s attention. Include a persuasive statement about 
@@ -50,8 +60,12 @@ function App() {
       4th / Closing Paragraph
       • Reiterate interest in the position, including the title of the job/internship, as well as the company’s name
       • Thank them for their consideration
+
+      Sincerely,
+      Name
       
-      Make sure it is ATS compatible. Include creative ways to show passion for industry and personal story to make it narrative-like. Don't include any oxford-commas, or subject lines. 
+      Make sure it is ATS compatible. Include creative ways to show passion for industry and personal story to make it narrative-like. Don't include any oxford-commas. 
+      Get person's name through their resume.
       `
     )
 
