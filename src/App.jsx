@@ -31,7 +31,7 @@ function App() {
       Name
       Contact Info
 
-      Date
+      Current Date
 
       Hiring Team
       Company Name
@@ -66,7 +66,7 @@ function App() {
       Name
       
       Make sure it is ATS compatible. Include creative ways to show passion for industry and personal story to make it narrative-like. Don't include any oxford-commas. 
-      Get person's name and contact info through their resume.
+      Get person's name and contact info through their resume and fill it in. Make sure to follow English grammar.
       `
     )
 
