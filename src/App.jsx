@@ -12,7 +12,11 @@ function App() {
   const [jobDescription, setjobDescription] = useState('')
   const [coverLetter, setcoverLetter] = useState('')
   const [loading, setloading] = useState(false)
+  const [step, setStep] = useState(1)
   
+  const date = new Date()
+  const datestring = date.toLocaleDateString()
+
   async function generate(){
     setloading(true)
     const letter = await callGemini(
@@ -31,11 +35,11 @@ function App() {
       Name
       Contact Info
 
-      Current Date
+      ${datestring}
 
       Hiring Team
       Company Name
-      Company Location (city, country)
+      Company Location (City, Country)
 
       Dear Hiring Team, 
 
@@ -92,35 +96,64 @@ function App() {
         <p>Tailored letters in seconds - powered by AI</p>
       </div>
 
-      <div className="step-card">
-        <div className="step-label">
-          <div className="step-number">1</div>
-          <div className='resume-card'><h2>Upload Resume</h2><p>PDF format only</p></div>
+      <div className="progress">Step {step}</div>
+
+      {step === 1 && (
+
+        <div className="step-card">
+          <div className="step-label">
+            <div className="step-number">1</div>
+            <div className='resume-card'><h2>Upload Resume</h2><p>PDF format only</p></div>
+            <ResumeUpload onParsed={setResume} />
+            </div>
+
+            <button 
+              disabled={!resume}
+              onClick={() => setStep(2)}
+            >
+              Next
+            </button>
         </div>
-        <ResumeUpload onParsed={setResume} />
-      </div>
+      )}
 
-      <div className="step-card">
-        <div className="step-label">
-          <div className="step-number">2</div>
-          <div className='job-card'><h2>Job Description</h2><p>Paste the full job posting</p></div>
+      { step === 2 && ( 
+      
+        <div className="step-card">
+          <div className="step-label">
+            <div className="step-number">2</div>
+            <div className='job-card'><h2>Job Description</h2><p>Paste the full job posting</p></div>
+          </div>
+          <JobDescription value={jobDescription} onChange={(e) => setjobDescription(e.target.value)} />
+          <button 
+            disabled={!jobDescription}
+            onClick={() => setStep(3)}
+          >
+            Next
+          </button>
         </div>
-        <JobDescription value={jobDescription} onChange={(e) => setjobDescription(e.target.value)} />
-      </div>
+      )}
 
-      <div className="step-card story-card">
-        <div className="step-label">
-          <div className="step-number">3</div>
-          <div className="story-card"><h2>Your Story</h2><p>Optional - a personal anecdote or achievement</p></div>
+      {step === 3 && (
+        <div className="step-card story-card">
+          <div className="step-label">
+            <div className="step-number">3</div>
+            <div className="story-card"><h2>Your Story</h2><p>Optional - a personal anecdote or achievement</p></div>
+          </div>
+          <Story value={story} onChange={(e) => setStory(e.target.value)} />
+
+          <button className={`generate-btn ${!resume || !jobDescription ? '' : ''}`} onClick={ async() => {
+            await generate() 
+            setStep(4)}}
+            >
+            {loading ? "Generating..." : "Generate Cover Letter"}
+          </button>
+        
         </div>
-        <Story value={story} onChange={(e) => setStory(e.target.value)} />
-      </div>
+      
+      )}
 
-      <button className={`generate-btn ${!resume || !jobDescription ? '' : ''}`} onClick={generate}>
-        {loading ? "Generating..." : "Generate Cover Letter"}
-      </button>
+      {step === 4 && coverLetter && (
 
-      {coverLetter && (
         <div className="output">
           <h2>Your Cover Letter</h2>
           <pre>{coverLetter}</pre>
