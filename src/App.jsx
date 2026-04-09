@@ -96,8 +96,6 @@ function App() {
         <p>Tailored letters in seconds - powered by AI</p>
       </div>
 
-      <div className="progress">Step {step}</div>
-
       {step === 1 && (
 
         <div className="step-card">
@@ -107,7 +105,7 @@ function App() {
             <ResumeUpload onParsed={setResume} />
             </div>
 
-            <button 
+            <button className='nxt-btn'
               disabled={!resume}
               onClick={() => setStep(2)}
             >
@@ -124,7 +122,7 @@ function App() {
             <div className='job-card'><h2>Job Description</h2><p>Paste the full job posting</p></div>
           </div>
           <JobDescription value={jobDescription} onChange={(e) => setjobDescription(e.target.value)} />
-          <button 
+          <button className='nxt-btn'
             disabled={!jobDescription}
             onClick={() => setStep(3)}
           >
