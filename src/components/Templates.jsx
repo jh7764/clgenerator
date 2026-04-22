@@ -36,6 +36,22 @@ function ResumeUpload({ onParsed, position, jobCompany }){
                 Position: ${position}
                 Company: ${jobCompany}
                 Resume Data: (Extract and use the text from the provided file)
+
+                Structure should be:
+                Name
+                Contact Info
+
+                Current Date
+
+                Dear Hiring Team,
+
+                [Body]
+
+                Sincerely,
+                [Name]
+
+                IMPORTANT: Return the cover letter in clean HTML format (using <p>, <h1>, and <br> tags) 
+                so it renders correctly in a rich text editor.
             `
 
             try {
@@ -214,7 +230,7 @@ export default function Templates(){
         {modalOpen &&
             <div className="modal-container">
                 <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-                    { !finalresult ? ( 
+                    {!finalresult ? ( 
                         <div className="modal-inner">
                             <label className="modal-content">Position wanted... </label>
                             <input
@@ -242,8 +258,7 @@ export default function Templates(){
 
                     ) : (
                         <div>
-                            <h3>Generated CL</h3>
-                            <TiptapEditor content={finalresult} />
+                            <Content initialCoverLetter={finalresult}/>
                         </div>
                     )}
                 </Modal>

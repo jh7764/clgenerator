@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import './Content.css'
 import TiptapEditor from './Tiptap'
+import Templates from './Templates'
 
 
 
 const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
 
-export default function Content() {
+export default function Content({initialCoverLetter}) {
     const [skills, setSkills] = useState(SKILLS)
     const [newSkill, setNewSkill] = useState('')
     const [addingSkill, setAddingSkill] = useState(false)
-    const [coverLetter, setcoverLetter] = useState('')
+    const [coverLetter, setcoverLetter] = useState(initialCoverLetter)
     const [loading, setloading] = useState(false)
 
   const addSkill = () => {
@@ -127,15 +128,10 @@ export default function Content() {
       </section>
     </div>
 
-    <TiptapEditor content={coverLetter} /> 
+    <aside>
+      <TiptapEditor content={coverLetter} /> 
+    </aside>
         
-        {/* Toolbar buttons as seen in your screenshot */}
-        <div className='preview-actions'>
-           <button className='icon-btn'><MdSearch /></button>
-           <button className='icon-btn'><MdPrint /></button>
-           <button className='icon-btn'><MdShare /></button>
-        </div>
-    
     <Footer />
     </>
   )
