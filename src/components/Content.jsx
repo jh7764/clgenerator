@@ -8,7 +8,7 @@ import Templates from './Templates'
 const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
 
-export default function Content({initialCoverLetter}) {
+export default function Content({ initialCoverLetter = ''}) {
     const [skills, setSkills] = useState(SKILLS)
     const [newSkill, setNewSkill] = useState('')
     const [addingSkill, setAddingSkill] = useState(false)
@@ -28,6 +28,7 @@ export default function Content({initialCoverLetter}) {
   return (
     <>
     <Header />
+    <main className='main-layout'>
     <div className='content'>
       <div className='content-step-badge'>Step 02 - Editorial Narrative</div>
 
@@ -128,9 +129,13 @@ export default function Content({initialCoverLetter}) {
       </section>
     </div>
 
-    <aside>
-      <TiptapEditor content={coverLetter} /> 
+    <aside className="editor-sidebar">
+      <div className='sticky-editor'>
+            <TiptapEditor content={coverLetter} /> 
+      </div>
     </aside>
+
+    </main>
         
     <Footer />
     </>
