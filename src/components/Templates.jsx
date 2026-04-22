@@ -251,6 +251,7 @@ export default function Templates(){
                                 jobCompany={jobCompany}
                                 onParsed={(text) => {
                                     setFinalResult(text);
+                                    handleParsed(text);
                                 
                                 }} />
                         </div>
