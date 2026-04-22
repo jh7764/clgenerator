@@ -11,6 +11,7 @@ const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
 
 export default function Content() {
+  const location = useLocation()
   const initialData = location.state?.generatedLetter || ''
 
   const [skills, setSkills] = useState(SKILLS)
@@ -18,7 +19,7 @@ export default function Content() {
   const [addingSkill, setAddingSkill] = useState(false)
   const [coverLetter, setcoverLetter] = useState(initialData)
   const [loading, setloading] = useState(false)
-  const location = useLocation()
+  
 
 
   const addSkill = () => {
