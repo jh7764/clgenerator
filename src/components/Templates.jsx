@@ -16,7 +16,7 @@ import creative from './images/creative.jpg'
 import modern from './images/modern.jpg'
 import { callGemini } from './utils/gemini'
 import { Navbar } from './Home'
-
+import TiptapEditor from './Tiptap'
 
 function ResumeUpload({ onParsed, position, jobCompany }){
     const [status, setStatus] = useState('idle')
@@ -214,32 +214,38 @@ export default function Templates(){
         {modalOpen &&
             <div className="modal-container">
                 <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-                    <div className="modal-inner">
-                        <label className="modal-content">Position wanted... </label>
-                        <input
-                            className="modal-input"
-                            value={position}
-                            onChange={(e) => setPosition(e.target.value)}
-                            placeholder="e.g. Senior Software Engineer"
-                        />
-                        <label className="modal-content">At Company... </label>
-                        <input
-                            className="modal-input"
-                            value={jobCompany}
-                            onChange={(e) => setJobCompany(e.target.value)}
-                            placeholder="Google Inc."
-                        />
+                    { !finalresult ? ( 
+                        <div className="modal-inner">
+                            <label className="modal-content">Position wanted... </label>
+                            <input
+                                className="modal-input"
+                                value={position}
+                                onChange={(e) => setPosition(e.target.value)}
+                                placeholder="e.g. Senior Software Engineer"
+                            />
+                            <label className="modal-content">At Company... </label>
+                            <input
+                                className="modal-input"
+                                value={jobCompany}
+                                onChange={(e) => setJobCompany(e.target.value)}
+                                placeholder="Google Inc."
+                            />
+                            <ResumeUpload
+                                position={position}
+                                jobCompany={jobCompany}
+                                onParsed={(text) => {
+                                    setFinalResult(text);
+                                
+                                }} />
+                        </div>
+            
 
-                    </div>
-                    <ResumeUpload
-                        position={position}
-                        jobCompany={jobCompany}
-                        onParsed={(text) => {
-                            setFinalResult(text);
-                        
-                        }}
-
-                    />
+                    ) : (
+                        <div>
+                            <h3>Generated CL</h3>
+                            <TiptapEditor content={finalresult} />
+                        </div>
+                    )}
                 </Modal>
             </div>
         }
