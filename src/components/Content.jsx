@@ -3,18 +3,23 @@ import './Content.css'
 import TiptapEditor from './Tiptap'
 import Templates from './Templates'
 import { Header, Footer } from './Home'
+import { useLocation } from 'react-router-dom'
 
 
 
 const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
 
-export default function Content({ initialCoverLetter }) {
-    const [skills, setSkills] = useState(SKILLS)
-    const [newSkill, setNewSkill] = useState('')
-    const [addingSkill, setAddingSkill] = useState(false)
-    const [coverLetter, setcoverLetter] = useState(initialCoverLetter)
-    const [loading, setloading] = useState(false)
+export default function Content() {
+  const [skills, setSkills] = useState(SKILLS)
+  const [newSkill, setNewSkill] = useState('')
+  const [addingSkill, setAddingSkill] = useState(false)
+  const [coverLetter, setcoverLetter] = useState(initialData)
+  const [loading, setloading] = useState(false)
+  const location = useLocation()
+
+  const initialData = location.state?.generatedLetter || ''
+
 
   const addSkill = () => {
     if (newSkill.trim()) {
@@ -28,7 +33,6 @@ export default function Content({ initialCoverLetter }) {
   
   return (
     <>
-    <Header />
     <main className='main-layout'>
     <div className='content'>
       <div className='content-step-badge'>Step 02 - Editorial Narrative</div>
@@ -138,7 +142,6 @@ export default function Content({ initialCoverLetter }) {
 
     </main>
         
-    <Footer />
     </>
   )
 }

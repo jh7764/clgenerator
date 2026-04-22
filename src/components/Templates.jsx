@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Modal from './Modal'
 import { 
@@ -150,6 +151,7 @@ export default function Templates(){
     const [modalOpen, setModalOpen] = useState(false)
     const [position, setPosition] = useState('')
     const [jobCompany, setJobCompany] = useState('')
+    const navigate = useNavigate()
 
     function handleTemplateSelection(templateTitle) {
         setselectedTemplate(templateTitle);
@@ -157,8 +159,7 @@ export default function Templates(){
     }
 
     function handleParsed(coverLetterText) {
-       setFinalResult(coverLetterText)
-       console.log("Generated Content: ", coverLetterText)
+       navigate('/content', {state: { generatedLetter: coverLetterText} })
 
     }
     return(
@@ -227,7 +228,7 @@ export default function Templates(){
             </div>
         </motion.div>
 
-        { modalOpen &&
+        {modalOpen &&
             <div className="modal-container">
                     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
                         <div className="modal-inner">
@@ -256,10 +257,6 @@ export default function Templates(){
                     </Modal>
             </div>
         } 
-
-        {finalresult &&
-            <Content initialCoverLetter={finalresult}/>
-        }
                    
 
         </>
