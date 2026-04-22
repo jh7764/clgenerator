@@ -227,9 +227,8 @@ export default function Templates(){
             </div>
         </motion.div>
 
-        {modalOpen &&
+        { modalOpen &&
             <div className="modal-container">
-                {!finalresult ? ( 
                     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
                         <div className="modal-inner">
                             <label className="modal-content">Position wanted... </label>
@@ -255,13 +254,13 @@ export default function Templates(){
                                 }} />
                         </div>
                     </Modal>
-                ) : (
-                    <Content initialCoverLetter={finalresult}/>
-                        
-                )}
-            
             </div>
+        } 
+
+        {finalresult &&
+            <Content initialCoverLetter={finalresult}/>
         }
+                   
 
         </>
     );
