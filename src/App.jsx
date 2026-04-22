@@ -11,7 +11,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/templates" element={<Templates />} />
-        <Route path="/content" element={<Content />} />
       </Routes>
 
     </HashRouter>

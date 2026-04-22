@@ -16,7 +16,7 @@ import boardroom from './images/boardroom.jpg'
 import creative from './images/creative.jpg'
 import modern from './images/modern.jpg'
 import { callGemini } from './utils/gemini'
-import { Navbar } from './Home'
+import { Navbar, Header, Footer } from './Home'
 import Content from './Content'
 
 function ResumeUpload({ onParsed, position, jobCompany }){
@@ -162,6 +162,7 @@ export default function Templates(){
     }
     return(
         <>
+        <Header />
         <Navbar />
         <label className='page-title'>
             Choose your Canvas
@@ -256,7 +257,8 @@ export default function Templates(){
                     </Modal>
             </div>
         } 
-                   
+
+        <Footer />   
 
         </>
     );

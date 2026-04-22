@@ -34,6 +34,7 @@ export default function Content() {
   
   return (
     <>
+    <Header />
     <main className='main-layout'>
     <div className='content'>
       <div className='content-step-badge'>Step 02 - Editorial Narrative</div>
@@ -142,6 +143,8 @@ export default function Content() {
     </aside>
 
     </main>
+
+    <Footer />
         
     </>
   )
