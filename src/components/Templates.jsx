@@ -51,8 +51,6 @@ function ResumeUpload({ onParsed, position, jobCompany }){
                 Sincerely,
                 [Name]
 
-                IMPORTANT: Return the cover letter in clean HTML format (using <p>, <h1>, and <br> tags) 
-                so it renders correctly in a rich text editor.
             `
 
             try {
