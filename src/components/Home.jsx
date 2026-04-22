@@ -5,7 +5,7 @@ import { MdOutlineEditNote, MdOutlineAccountCircle } from "react-icons/md"
 import { BsFillPaletteFill } from "react-icons/bs"
 import { PiExportBold } from "react-icons/pi"
 import Templates from './Templates'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 
 
@@ -70,7 +70,7 @@ export function Navbar(){
   )
 }
 
-export function Header({ onNavTemplates }) {
+export function Header() {
   return (
     <header className="header">
       <div className="head">
