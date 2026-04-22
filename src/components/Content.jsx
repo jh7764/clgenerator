@@ -2,13 +2,14 @@ import { useState } from 'react'
 import './Content.css'
 import TiptapEditor from './Tiptap'
 import Templates from './Templates'
+import { Header, Footer } from './Home'
 
 
 
 const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
 
-export default function Content({ initialCoverLetter = ''}) {
+export default function Content({ initialCoverLetter }) {
     const [skills, setSkills] = useState(SKILLS)
     const [newSkill, setNewSkill] = useState('')
     const [addingSkill, setAddingSkill] = useState(false)
@@ -130,7 +131,7 @@ export default function Content({ initialCoverLetter = ''}) {
     </div>
 
     <aside className="editor-sidebar">
-      <div className='sticky-editor'>
+      <div className="sticky-editor">
             <TiptapEditor content={coverLetter} /> 
       </div>
     </aside>
