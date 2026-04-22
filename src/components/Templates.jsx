@@ -16,7 +16,7 @@ import creative from './images/creative.jpg'
 import modern from './images/modern.jpg'
 import { callGemini } from './utils/gemini'
 import { Navbar } from './Home'
-import TiptapEditor from './Tiptap'
+import Content from './Content'
 
 function ResumeUpload({ onParsed, position, jobCompany }){
     const [status, setStatus] = useState('idle')
