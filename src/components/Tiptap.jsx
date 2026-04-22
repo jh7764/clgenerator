@@ -9,14 +9,14 @@ const TiptapEditor = ({ content }) => {
     content: content,
     editorProps: {
       attributes: {
-        class: 'prose-editor focus:outline-none', // Add your CSS class here
+        class: 'prose-editor focus:outline-none', 
       },
     },
   })
 
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
-      editor.commands.setContent(content, false) // false prevents cursor jump
+      editor.commands.setContent(content, false) 
     }
   }, [content, editor])
 
