@@ -229,8 +229,8 @@ export default function Templates(){
 
         {modalOpen &&
             <div className="modal-container">
-                <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-                    {!finalresult ? ( 
+                {!finalresult ? ( 
+                    <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
                         <div className="modal-inner">
                             <label className="modal-content">Position wanted... </label>
                             <input
@@ -254,14 +254,12 @@ export default function Templates(){
                                 
                                 }} />
                         </div>
+                    </Modal>
+                ) : (
+                    <Content initialCoverLetter={finalresult}/>
+                        
+                )}
             
-
-                    ) : (
-                        <div>
-                            <Content initialCoverLetter={finalresult}/>
-                        </div>
-                    )}
-                </Modal>
             </div>
         }
 
