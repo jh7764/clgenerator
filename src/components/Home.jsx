@@ -5,20 +5,24 @@ import { MdOutlineEditNote, MdOutlineAccountCircle } from "react-icons/md"
 import { BsFillPaletteFill } from "react-icons/bs"
 import { PiExportBold } from "react-icons/pi"
 import Templates from './Templates'
+import { useNavigate } from 'react-router-dom'
+
+
 
 
 export default function Home(){
   const [showTemplates, setShowTemplates] = useState(false)
+  const navigate = useNavigate()
   
   return (
     <div className="home-container">
-      <Header onNavTemplates={() => setShowTemplates(true)}/>
+      <Header />
       <main>
         {showTemplates ? (<Templates />) : (
           <>
-            <HeroSection onStart={()=>setShowTemplates(true)} />
+            <HeroSection onStart={() => navigate('/templates')} />
             <FeaturesSection />
-            <CTASection  onStart={()=>setShowTemplates(true)} />
+            <CTASection  onStart={() => navigate('/templates')} />
           </>
         )}
       </main>
@@ -45,7 +49,7 @@ export function Navbar(){
               <a className="sidebar-item">
                   <button className="sidebar-btn">
                     <MdOutlineEditNote className="sidebar-icon" size={35} />
-                    Content
+                    Content 
                   </button>
               </a>
               <a className="sidebar-item">
@@ -73,9 +77,9 @@ export function Header({ onNavTemplates }) {
         <span className="header-logo">Covey</span>
       </div>
       <nav className="header-nav">
-        <a className="nav-link-active" href="#">Home</a>
-        <a className="nav-link" href="#" onClick={onNavTemplates}>Templates</a>
-        <a className="nav-link" href="#">History</a>
+        <Link className="nav-link" to="/">Home</Link>
+        <Link className="nav-link" to="/templates">Templates</Link>
+        <Link className="nav-link" href="#">History</Link>
       </nav>
       <div className="header-actions">
         <button className="icon-btn">
@@ -183,6 +187,7 @@ export function CTASection({ onStart }) {
   )
 }
 
+{/* Must fix the footer privarcy, terms and supports stuff, should be link instead of a */}
 export function Footer() {
   return (
     <footer className="footer">
