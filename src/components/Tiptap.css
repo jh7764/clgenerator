@@ -9,10 +9,9 @@
 }
 
 .white-paper-effect {
-    background-color: white;
-    width: 500mm; 
-    min-height: 300mm; 
-    padding: 10mm; 
+    background-color: #ffffff;
+    width: 100%;
+    padding: 20mm;
     margin: 0 auto;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     border: 1px solid #e5e7eb;
@@ -27,10 +26,6 @@
     color: #1a1a1a !important;
     outline: none;
     opacity: 1;
-}
-
-.prose-editor {
-    color: #1a1a1a !important;
 }
 
 .tiptap p {
