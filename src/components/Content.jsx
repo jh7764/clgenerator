@@ -204,6 +204,7 @@ export default function Content() {
             />
         </label>
       </section>
+      <button onClick={handleRefine}>Save</button>
     </div>
 
     <aside className="editor-sidebar">
@@ -212,7 +213,7 @@ export default function Content() {
       </div>
     </aside>
 
-    <button onClick={handleRefine}>Save</button>
+    
 
     </main>
 

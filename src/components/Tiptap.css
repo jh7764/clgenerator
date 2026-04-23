@@ -1,10 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&family=ZCOOL+KuaiLe&family=Space+Grotesk:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
+.editor-container {
+    background-color: #f3f4f6; 
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.white-paper-effect {
+    background-color: white;
+    width: 210mm; 
+    min-height: 297mm; 
+    padding: 25mm; 
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border: 1px solid #e5e7eb;
+    box-sizing: border-box;
+}
+
+
 .tiptap {
-    font-family: Nunito;
-    color: black;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11pt; 
+    line-height: 1.6;
+    color: #1a1a1a;
+    outline: none;
 }
 
 .tiptap p {
-    margin: 1em 0;
+    margin-bottom: 1.2em;
 }
+
+/* Optional: Print settings to hide the gray background when printing */
+@media print {
+    .editor-container {
+        background: none;
+        padding: 0;
+    }
+    .white-paper-effect {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        width: 100%;
+    }
+}
+   

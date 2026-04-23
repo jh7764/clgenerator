@@ -9,7 +9,7 @@ const TiptapEditor = ({ content }) => {
     content: content,
     editorProps: {
       attributes: {
-        class: 'prose-editor focus:outline-none', 
+        class: 'tiptap focus:outline-none', 
       },
     },
   })
@@ -21,8 +21,10 @@ const TiptapEditor = ({ content }) => {
   }, [content, editor])
 
   return (
-    <div className="white-paper-effect">
-      <EditorContent editor={editor} />
+    <div className="editor-content">
+        <div className="white-paper-effect">
+        <EditorContent editor={editor} />
+        </div>
     </div>
   )
 }
