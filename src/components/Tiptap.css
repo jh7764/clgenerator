@@ -9,7 +9,7 @@
 }
 
 .white-paper-effect {
-    background-color: #ffffff;
+    background-color: #5cf847;
     width: 100%;
     padding: 20mm;
     margin: 0 auto;
@@ -23,17 +23,13 @@
     font-family: 'Nunito', sans-serif;
     font-size: 11pt; 
     line-height: 1.6;
-    color: #1a1a1a !important;
     outline: none;
-    opacity: 1;
 }
 
 .tiptap p {
     margin-bottom: 1.2em;
 }
-.ProseMirror {
-    color: #1a1a1a !important; 
-}
+
 /* Optional: Print settings to hide the gray background when printing */
 @media print {
     .editor-container {
