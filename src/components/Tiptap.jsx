@@ -9,7 +9,7 @@ const TiptapEditor = ({ content }) => {
     content: content,
     editorProps: {
       attributes: {
-        class: 'tiptap focus:outline-none', 
+        class: 'prose-editor tiptap focus:outline-none', 
       },
     },
   })

@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&family=ZCOOL+KuaiLe&family=Space+Grotesk:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
+:root {
+    color-scheme: light;
+}
 .editor-container {
     background-color: #f3f4f6; 
-    padding: 40px 20px;
+    padding: 10px 10px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -10,9 +13,9 @@
 
 .white-paper-effect {
     background-color: white;
-    width: 210mm; 
-    min-height: 297mm; 
-    padding: 25mm; 
+    width: 500mm; 
+    min-height: 300mm; 
+    padding: 10mm; 
     margin: 0 auto;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     border: 1px solid #e5e7eb;
@@ -24,8 +27,12 @@
     font-family: 'Nunito', sans-serif;
     font-size: 11pt; 
     line-height: 1.6;
-    color: #1a1a1a;
+    color: #1a1a1a !important;
     outline: none;
+}
+
+.prose-editor {
+    color: #1a1a1a !important;
 }
 
 .tiptap p {
