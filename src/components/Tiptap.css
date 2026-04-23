@@ -19,7 +19,7 @@
 }
 
 
-.tiptap {
+.tiptap * {
     font-family: 'Nunito', sans-serif;
     font-size: 11pt; 
     line-height: 1.6;
@@ -31,7 +31,9 @@
 .tiptap p {
     margin-bottom: 1.2em;
 }
-
+.ProseMirror {
+    color: #1a1a1a !important; 
+}
 /* Optional: Print settings to hide the gray background when printing */
 @media print {
     .editor-container {
