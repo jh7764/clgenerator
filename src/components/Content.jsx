@@ -63,8 +63,6 @@ export default function Content() {
 
   }
     
-
-
   const addSkill = () => {
     if (newSkill.trim()) {
       setSkills([...skills, newSkill.trim()])
@@ -148,7 +146,7 @@ export default function Content() {
             <span className='content-metrics-badge'>Metrics Matter</span>
           </span>
           <input
-            name = "keyachivement"
+            name = "keyachievement"
             value = {data.keyachievement}
             onChange={handleInputChange}
             className='content-input'
@@ -204,7 +202,10 @@ export default function Content() {
             />
         </label>
       </section>
-      <button onClick={handleRefine}>Save</button>
+
+      <section className='content-card'>
+          <button onClick={handleRefine}>Save</button>
+      </section>
     </div>
 
     <aside className="editor-sidebar">

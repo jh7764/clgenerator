@@ -36,20 +36,8 @@ function ResumeUpload({ onParsed, position, jobCompany }){
                 You are an expert career coach. Based on the following resume and job details, generate a professional, compelling cover letter.
                 Position: ${position}
                 Company: ${jobCompany}
-                Resume Data: (Extract and use the text from the provided file)
-
-                Structure should be:
-                Name
-                Contact Info
-
-                Current Date
-
-                Dear Hiring Team,
-
-                [Body]
-
-                Sincerely,
-                [Name]
+                Resume Data: (Extract and use the text from the provided file) 
+                please make sure text color is in black!
 
             `
 

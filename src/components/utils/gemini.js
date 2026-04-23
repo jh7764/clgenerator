@@ -19,7 +19,7 @@ export const callGemini = async(prompt, pdfBase64 = null) => {
     });
 
     if (!res.ok) {
-        // Try to get the error message from the body, otherwise fallback to status text
+
         const errorText = await res.text();
         console.error(`API Error (${res.status}):`, errorText);
         throw new Error(`Server responded with ${res.status}: ${errorText}`);
