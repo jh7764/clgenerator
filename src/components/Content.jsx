@@ -4,6 +4,7 @@ import TiptapEditor from './Tiptap'
 import Templates from './Templates'
 import { Header, Footer } from './Home'
 import { useLocation } from 'react-router-dom'
+import { callGemini } from './utils/gemini'
 
 
 
@@ -18,8 +19,50 @@ export default function Content() {
   const [newSkill, setNewSkill] = useState('')
   const [addingSkill, setAddingSkill] = useState(false)
   const [coverLetter, setcoverLetter] = useState(initialData)
-  const [loading, setloading] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState(
+    {
+      fullname: '',
+      currentrole: '',
+      jobdescription: '',
+      northstar: '',
+      keyachievement: '',
+      anecdote: ''
+    }
+  )
+
+  const handleInputChange = (e) =>{
+    const {name, value} = e.target 
+    setData(prev => ({...prev, [name]:value}))
+  }
+
+  const handleRefine = async () => {
+    setLoading(true)
   
+    const prompt = `
+      Refine my cover letter with the following details:
+      Name: ${data.fullname}
+      Current Role: ${data.currentrole}
+      Job Description: ${data.jobdescription}
+      Professional Mission: ${data.northstar}
+      Key Achievement: ${data.keyachievement}
+      Tone: ${data.tone}
+      Skills: ${skills.join(', ')}
+      Personal Story: ${data.anecdote}
+      Current Draft: ${coverLetter}
+    `
+
+    try {
+      const updatedLetter = await callGemini(prompt);
+      setcoverLetter(updatedLetter);
+    } catch (error) {
+      console.error("Refinement failed:", error);
+    } finally {
+      setLoading(false);
+    }
+
+  }
+    
 
 
   const addSkill = () => {
@@ -29,8 +72,6 @@ export default function Content() {
     }
     setAddingSkill(false)
   }
-
-
   
   return (
     <>
@@ -53,21 +94,43 @@ export default function Content() {
         <div className='content-row'>
           <label className='content-label'>
             Full Name
-            <input className='content-input' type='text' placeholder='Maria Sterling' />
+            <input 
+              name ="fullname" 
+              value = {data.fullname}
+              onChange={handleInputChange}
+              className='content-input'  
+              type='text' 
+              placeholder='Maria Sterling' 
+            />
           </label>
           <label className='content-label'>
             Current Role
-            <input className='content-input' type='text' placeholder='e.g. Senior Product' />
+            <input 
+              name = "currentrole" 
+              value = {data.currentrole}
+              onChange={handleInputChange}
+              className='content-input' 
+              type='text' 
+              placeholder='e.g. Senior Product' />
           </label>
           <label className = 'content-label'>
             Job Description
-            <input className = 'content-input' type='text' placeholder='e.g What we are looking for...'/>
+            <input 
+              name="jobdescription" 
+              value = {data.jobdescription}
+              onChange={handleInputChange}
+              className = 'content-input' 
+              type='text' 
+              placeholder='e.g What we are looking for...'/>
           </label>
         </div>
 
         <label className='content-label content-label--full'>
           Your 'North Star' (Professional Mission)
           <textarea
+            name= "northstar"
+            value = {data.northstar}
+            onChange={handleInputChange}
             className='content-textarea'
             rows={3}
             placeholder='To bridge the gap between human empathy and digital precision...'
@@ -85,6 +148,9 @@ export default function Content() {
             <span className='content-metrics-badge'>Metrics Matter</span>
           </span>
           <input
+            name = "keyachivement"
+            value = {data.keyachievement}
+            onChange={handleInputChange}
             className='content-input'
             type='text'
             placeholder='Increased conversion by 40% via...'
@@ -103,6 +169,7 @@ export default function Content() {
             {addingSkill ? (
               <input
                 autoFocus
+                name="skills"
                 className='content-input content-skill-input'
                 onBlur={addSkill}
                 onChange={(e) => setNewSkill(e.target.value)}
@@ -121,13 +188,16 @@ export default function Content() {
           <span>Tone of Voice</span>
           <div className='content-tones'>
             {TONES.map((tone) => (
-              <span className='content-tone-chip' key={tone}>{tone}</span>
+              <span className={`content-tone-chip $data.tone === tone ? 'active' : ''}`} key={tone} onClick={() => setData(prev => ({...prev, tone: tone}))}>{tone}</span>
             ))}
           </div>
         </div>
         <label className='content-label'>
             Optional - weave in a unique story or personal anecdote 
             <textarea
+                name="anecdote"
+                value = {data.anecdote}
+                onChange={handleInputChange}
                 className='content-textarea'
                 rows={4}
                 placeholder='Talk about how you solved a problem...'
@@ -141,6 +211,8 @@ export default function Content() {
             <TiptapEditor content={coverLetter} /> 
       </div>
     </aside>
+
+    <button onClick={handleRefine}>Save</button>
 
     </main>
 
