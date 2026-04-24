@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Content.css'
+import './Tiptap.css'
 import TiptapEditor from './Tiptap'
 import Templates from './Templates'
 import { Header, Footer } from './Home'
