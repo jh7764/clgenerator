@@ -259,6 +259,7 @@
 .white-paper-effect {
   background: white;
   min-height: 650px;
+  width: 55rem;
   padding: 40px;
 
 }
