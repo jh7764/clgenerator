@@ -63,12 +63,9 @@
 
 body {
   font-family: var(--font-body);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
   background-color: #0b0e14;
-  background-image: radial-gradient(#1c2028 1px, transparent 1px);
   background-size: 40px 40px;
 }
  
