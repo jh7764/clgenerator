@@ -240,13 +240,12 @@
 
 .main-layout {
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr 400px; 
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 10px;
   margin-top: 3rem;
-}
+}y
 
 .editor-sidebar {
   padding-left: 2rem;
@@ -260,7 +259,5 @@
 .white-paper-effect {
   background: white;
   min-height: 650px;
-  width: 100%;
   padding: 40px;
-
 }
