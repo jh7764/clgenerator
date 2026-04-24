@@ -9,7 +9,6 @@
 }
 
 .white-paper-effect {
-    background-color: #5cf847;
     width: 100%;
     padding: 20mm;
     margin: 0 auto;
@@ -27,6 +26,9 @@
 
 .tiptap p {
     margin-bottom: 1.2em;
+    color: rgba(0,0,0,0.2);
+    opacity: 0.3;
+
 }
 
 /* Optional: Print settings to hide the gray background when printing */
