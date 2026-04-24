@@ -3,6 +3,8 @@ import { FloatingMenu, BubbleMenu } from '@tiptap/react/menus'
 import StarterKit from '@tiptap/starter-kit'
 import { useMemo, useEffect } from 'react'
 
+import './Tiptap.css'
+
 const TiptapEditor = ({ content }) => {
   const editor = useEditor({
     extensions: [StarterKit],

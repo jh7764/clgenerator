@@ -240,26 +240,10 @@
 
 .main-layout {
   display: grid;
-  grid-template-columns: 1fr 475px; 
-  max-width: 1400px;
+  width: 100%;
+  grid-template-columns: 1fr 400px; 
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 12px;
   margin-top: 3rem;
-}
-
-.editor-sidebar {
-  padding-left: 2rem;
-}
-
-.sticky-editor {
-  position: sticky;
-  top: 2rem; 
-}
-
-.white-paper-effect {
-  background: white;
-  min-height: 650px;
-  width: 55rem;
-  padding: 40px;
-
 }
