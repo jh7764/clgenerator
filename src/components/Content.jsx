@@ -50,6 +50,8 @@ export default function Content() {
       Skills: ${skills.join(', ')}
       Personal Story: ${data.anecdote}
       Current Draft: ${coverLetter}
+
+      Only respond with the cover letter. Please format it in HTML.
     `
 
     try {

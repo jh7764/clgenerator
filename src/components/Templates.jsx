@@ -37,7 +37,8 @@ function ResumeUpload({ onParsed, position, jobCompany }){
                 Position: ${position}
                 Company: ${jobCompany}
                 Resume Data: (Extract and use the text from the provided file) 
-                please make sure text color is in black!
+                
+                Only respond with the cover letter. Please format it in HTML.
 
             `
 
