@@ -247,3 +247,20 @@
   padding: 12px;
   margin-top: 3rem;
 }
+
+.editor-sidebar {
+  padding-left: 2rem;
+}
+
+.sticky-editor {
+  position: sticky;
+  top: 2rem; 
+}
+
+.white-paper-effect {
+  background: white;
+  min-height: 650px;
+  width: 100%;
+  padding: 40px;
+
+}
