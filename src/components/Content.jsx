@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './Content.css'
 import TiptapEditor from './Tiptap'
-import './Tiptap.css'
 import Templates from './Templates'
 import { Header, Footer } from './Home'
 import { useLocation } from 'react-router-dom'
