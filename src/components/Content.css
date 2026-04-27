@@ -240,16 +240,15 @@
 
 .main-layout {
   display: grid;
-  grid-template-columns: 1fr 400px; 
+  grid-template-columns: 1fr 475px; 
   max-width: 1400px;
   margin: 0 auto;
-  padding: 8px;
+  padding: 15px;
   margin-top: 3rem;
 }
 
 .editor-sidebar {
-  padding-left: 5px;
-  padding-right: 300px;
+  padding-left: 2rem;
 }
 
 .sticky-editor {
@@ -257,13 +256,10 @@
   top: 2rem; 
 }
 
-
 .white-paper-effect {
-  width: 40rem;
-  padding: 20mm;
-  margin: 0 auto;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  box-sizing: border-box;
+  background: white;
+  min-height: 650px;
+  width: 55rem;
+  padding: 40px;
+
 }
-
-
