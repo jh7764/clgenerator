@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from './components/Home'
-import './components/Home.css'
+import './App.css'
 import Content from './components/Content'
 import Templates from './components/Templates'
 import { HashRouter, Routes, Route } from 'react-router-dom'
