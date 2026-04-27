@@ -16,6 +16,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: none;
+    background-color: black;
+}
 
 .tiptap * {
     font-family: 'Nunito', sans-serif;

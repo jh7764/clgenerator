@@ -240,7 +240,7 @@
 
 .main-layout {
   display: grid;
-  grid-template-columns: 1fr 300px; 
+  grid-template-columns: 1fr 400px; 
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px;
@@ -248,7 +248,7 @@
 }
 
 .editor-sidebar {
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 }
 
 .sticky-editor {
@@ -259,5 +259,6 @@
 .white-paper-effect {
   background: white;
   min-height: 650px;
-  padding: 35px;
+  padding: 30px;
+  
 }
