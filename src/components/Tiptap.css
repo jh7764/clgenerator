@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&family=ZCOOL+KuaiLe&family=Space+Grotesk:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-.editor-content {
-    background-color:black;
-    padding: 10px 10px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-}
 
 .white-paper-effect {
     width: 40rem;
@@ -31,8 +24,7 @@
 }
 
 body {
-    background-image: none;
-    background-color: black;
+    color:black;
 }
 
 /* Optional: Print settings to hide the gray background when printing */

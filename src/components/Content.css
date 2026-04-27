@@ -248,7 +248,7 @@
 }
 
 .editor-sidebar {
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .sticky-editor {
@@ -258,7 +258,7 @@
 
 .white-paper-effect {
   background: white;
-  min-height: 650px;
-  padding: 30px;
+  min-height: 550px;
+  padding-right: 300px;
   
 }
