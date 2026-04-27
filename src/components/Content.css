@@ -243,8 +243,18 @@
   grid-template-columns: 1fr 400px; 
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 8px;
   margin-top: 3rem;
+}
+
+.editor-sidebar {
+  padding-left: 5px;
+  padding-right: 300px;
+}
+
+.sticky-editor {
+  position: sticky;
+  top: 2rem; 
 }
 
 
