@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&family=ZCOOL+KuaiLe&family=Space+Grotesk:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-.editor-container {
+.editor-content {
     background-color:black;
     padding: 10px 10px;
     min-height: 100vh;
@@ -14,11 +14,6 @@
     margin: 0 auto;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     box-sizing: border-box;
-}
-
-body {
-    background-image: none;
-    background-color: black;
 }
 
 .tiptap * {
