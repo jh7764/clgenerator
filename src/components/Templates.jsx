@@ -44,8 +44,9 @@ function ResumeUpload({ onParsed, position, jobCompany }){
 
             try {
                 const generatedCoverLetter = await callGemini(prompt, base64String)
+                const cleaned = generatedCoverLetter.replace(/^```html\s*/i, '').replace(/```\s*$/,'').trim();
                 setStatus('done')
-                onParsed(generatedCoverLetter)
+                onParsed(cleaned)
 
             } catch (error){
                 console.error("Gemini Error: ", error)

@@ -56,7 +56,8 @@ export default function Content() {
 
     try {
       const updatedLetter = await callGemini(prompt);
-      setcoverLetter(updatedLetter);
+      const cleaned = updatedLetter.replace(/^```html\s*/i, '').replace(/```\s*$/,'').trim();
+      setcoverLetter(cleaned);
     } catch (error) {
       console.error("Refinement failed:", error);
     } finally {
