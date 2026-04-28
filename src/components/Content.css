@@ -240,7 +240,7 @@
 
 .main-layout {
   display: grid;
-  grid-template-columns: 0.5fr 650px; 
+  grid-template-columns: 0.75fr 600px; 
   max-width: 1450px;
   margin: 0 auto;
   padding: 15px;
@@ -258,7 +258,7 @@
 .white-paper-effect {
   background: white;
   min-height: 650px;
-  width: 48rem;
+  width: 45rem;
   padding: 40px;
 
 
