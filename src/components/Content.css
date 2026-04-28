@@ -253,7 +253,9 @@
 
 .sticky-editor {
   position: sticky;
-  top: 2rem; 
+  top: 3rem; 
+  padding-top: 3rem;
+  padding-right: 200px;
 }
 
 .white-paper-effect {
@@ -261,5 +263,6 @@
   min-height: 650px;
   width: 55rem;
   padding: 40px;
+
 
 }
