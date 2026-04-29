@@ -2,11 +2,11 @@ import { useState } from 'react'
 import './Content.css'
 import TiptapEditor from './Tiptap'
 import Templates from './Templates'
-import { Header, Footer } from './Home'
+import { Navbar, Header, Footer } from './Home'
 import { useLocation } from 'react-router-dom'
 import { callGemini } from './utils/gemini'
 
-
+import Modal from './Modal'
 
 const SKILLS = ['Rapid Prototyping', 'User Psychology', 'Systems Thinking']
 const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritative']
@@ -14,6 +14,8 @@ const TONES = ['Corporate Pro', 'Creative Rebel', 'Conversational', 'Authoritati
 export default function Content() {
   const location = useLocation()
   const initialData = location.state?.generatedLetter || ''
+
+  const [modalOpen, setModalOpen] = useState(false)
 
   const [skills, setSkills] = useState(SKILLS)
   const [newSkill, setNewSkill] = useState('')
@@ -77,6 +79,7 @@ export default function Content() {
   return (
     <>
     <Header />
+    <Navbar />
     <main className='main-layout'>
     <div className='content'>
       <div className='content-step-badge'>Step 02 - Editorial Narrative</div>
@@ -127,6 +130,7 @@ export default function Content() {
         </div>
 
         <label className='content-label content-label--full'>
+           <span className='content-skill-icon'>⭐</span>
           Your 'North Star' (Professional Mission)
           <textarea
             name= "northstar"
@@ -163,7 +167,7 @@ export default function Content() {
           <div className='content-skills'>
             {skills.map((skill) => (
               <span className='content-skill-chip' key={skill}>
-                <span className='content-skill-icon'>⚡</span>
+                <span className='content-skill-icon'>🔥</span>
                 {skill}
               </span>
             ))}
@@ -207,7 +211,7 @@ export default function Content() {
       </section>
 
       <section className='content-card'>
-          <button onClick={handleRefine}>Save</button>
+          <button className='content-section-badge' onClick={handleRefine}>Save</button>
       </section>
     </div>
 
@@ -216,6 +220,23 @@ export default function Content() {
             <TiptapEditor content={coverLetter} /> 
       </div>
     </aside>
+
+
+    <section className='content-card'>
+          <button className='content-section-badge' onClick={() => setModalOpen(true)}>Export</button>
+    </section>
+
+    {/*{modalOpen &&
+      <div className="modal-container">
+        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
+          <div className="modal-inner">
+                    
+          </div>
+        </Modal>
+      </div>
+    } */}
+  
+
 
     
 
