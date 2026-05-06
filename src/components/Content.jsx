@@ -5,7 +5,6 @@ import Templates from './Templates'
 import { Header, Footer } from './Home'
 import { useLocation } from 'react-router-dom'
 import { callGemini } from './utils/gemini'
-import './utils/server'
 
 import Modal from './Modal'
 
