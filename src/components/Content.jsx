@@ -29,7 +29,8 @@ export default function Content() {
       jobdescription: '',
       northstar: '',
       keyachievement: '',
-      anecdote: ''
+      anecdote: '',
+      tone: ''
     }
   )
 
@@ -78,7 +79,7 @@ export default function Content() {
   }
 
   const exportFile = async (type) => {
-  const res = await fetch(`/export/${type}`, {
+  const res = await fetch(`/api/export/${type}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ html: coverLetter })
@@ -89,6 +90,7 @@ export default function Content() {
   a.href = url
   a.download = `cover-letter.${type === 'pdf' ? 'pdf' : 'docx'}`
   a.click()
+  URL.revokeObjectURL(url)
 }
 
   
