@@ -86,6 +86,7 @@ export default function Content() {
   })
   const blob = await res.blob()
   const url = URL.createObjectURL(blob)
+  console.log('fetching:', url)
   const a = document.createElement('a')
   a.href = url
   a.download = `cover-letter.${type === 'pdf' ? 'pdf' : 'docx'}`
