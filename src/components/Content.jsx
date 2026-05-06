@@ -250,10 +250,6 @@ export default function Content() {
       </div>
     } 
   
-
-
-    
-
     </main>
 
     <Footer />
