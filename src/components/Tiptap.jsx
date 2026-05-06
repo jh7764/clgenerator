@@ -3,10 +3,11 @@ import { FloatingMenu, BubbleMenu } from '@tiptap/react/menus'
 import StarterKit from '@tiptap/starter-kit'
 import { useMemo, useEffect } from 'react'
 
-const TiptapEditor = ({ content }) => {
+const TiptapEditor = ({ content, onChange }) => {
   const editor = useEditor({
     extensions: [StarterKit],
     content: content,
+    onUpdate: ({editor}) => onChange(editor.getHTML()),
     editorProps: {
       attributes: {
         class: 'tiptap-content focus:outline-none', 

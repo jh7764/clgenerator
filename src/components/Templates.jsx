@@ -16,7 +16,7 @@ import boardroom from './images/boardroom.jpg'
 import creative from './images/creative.jpg'
 import modern from './images/modern.jpg'
 import { callGemini } from './utils/gemini'
-import { Navbar, Header, Footer } from './Home'
+import { Header, Footer } from './Home'
 import Content from './Content'
 
 function ResumeUpload({ onParsed, position, jobCompany }){
@@ -77,15 +77,8 @@ function ResumeUpload({ onParsed, position, jobCompany }){
             {status === 'loading' && (
                 <div className="upload-status">
                     <span> Writing your cover letter . . . </span>
+                    <span> You will be redirected shortly . . .</span>
                 </div>
-            )}
-
-            {status === 'done' && (
-            <div className="upload-status">
-                <MdCheckCircle size={36} className="upload-success-icon" />
-                <span> Cover Letter Ready! </span>
-                {/* Add href to directly go to content page */}
-            </div>
             )}
         </div>
     )
@@ -153,7 +146,6 @@ export default function Templates(){
     return(
         <>
         <Header />
-        <Navbar />
         <label className='page-title'>
             Choose your Canvas
             <span className='page-description'> 

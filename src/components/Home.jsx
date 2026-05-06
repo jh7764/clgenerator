@@ -31,45 +31,6 @@ export default function Home(){
   )
 }
 
-
-export function Navbar(){
-  return(
-      <aside className="sidebar">
-        <div className="sidebar-header" >
-          <label className="sidebar-title">Generator</label>
-          <span className="sidebar-subtitle">BUILD YOUR STORY</span>
-          <nav className="sidebar-nav">
-              
-              <a className="sidebar-item" >
-                  <button className="sidebar-btn">
-                    <HiMiniCursorArrowRipple className="sidebar-icon" size={35} />
-                    Selection
-                  </button>
-              </a>
-              <a className="sidebar-item">
-                  <button className="sidebar-btn">
-                    <MdOutlineEditNote className="sidebar-icon" size={35} />
-                    Content 
-                  </button>
-              </a>
-              <a className="sidebar-item">
-                  <button className="sidebar-btn">
-                    <BsFillPaletteFill className="sidebar-icon" size={32}/>
-                    Design      
-                  </button>
-              </a>
-              <a className="sidebar-item">
-                  <button className="sidebar-btn">
-                    <PiExportBold className="sidebar-icon" size={35} />
-                    Export
-                  </button>
-              </a>
-          </nav>
-      </div>
-    </aside>
-  )
-}
-
 export function Header() {
   return (
     <header className="header">

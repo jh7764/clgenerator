@@ -2,9 +2,10 @@ import { useState } from 'react'
 import './Content.css'
 import TiptapEditor from './Tiptap'
 import Templates from './Templates'
-import { Navbar, Header, Footer } from './Home'
+import { Header, Footer } from './Home'
 import { useLocation } from 'react-router-dom'
 import { callGemini } from './utils/gemini'
+import './utils/server'
 
 import Modal from './Modal'
 
@@ -39,6 +40,7 @@ export default function Content() {
   }
 
   const handleRefine = async () => {
+    localStorage.setItem('coverLetter', coverLetter)
     setLoading(true)
   
     const prompt = `
@@ -75,11 +77,25 @@ export default function Content() {
     }
     setAddingSkill(false)
   }
+
+  const exportFile = async (type) => {
+  const res = await fetch(`/export/${type}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ html: coverLetter })
+  })
+  const blob = await res.blob()
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `cover-letter.${type === 'pdf' ? 'pdf' : 'docx'}`
+  a.click()
+}
+
   
   return (
     <>
     <Header />
-    <Navbar />
     <main className='main-layout'>
     <div className='content'>
       <div className='content-step-badge'>Step 02 - Editorial Narrative</div>
@@ -130,8 +146,10 @@ export default function Content() {
         </div>
 
         <label className='content-label content-label--full'>
-           <span className='content-skill-icon'>⭐</span>
-          Your 'North Star' (Professional Mission)
+          <span>
+            <span className='content-skill-icon'>⭐</span>
+            Your 'North Star' (Professional Mission)
+          </span>
           <textarea
             name= "northstar"
             value = {data.northstar}
@@ -193,7 +211,7 @@ export default function Content() {
           <span>Tone of Voice</span>
           <div className='content-tones'>
             {TONES.map((tone) => (
-              <span className={`content-tone-chip $data.tone === tone ? 'active' : ''}`} key={tone} onClick={() => setData(prev => ({...prev, tone: tone}))}>{tone}</span>
+              <span className={`content-tone-chip ${data.tone === tone ? 'active' : ''}`} key={tone} onClick={() => setData(prev => ({...prev, tone: tone}))}>{tone}</span>
             ))}
           </div>
         </div>
@@ -212,29 +230,26 @@ export default function Content() {
 
       <section className='content-card'>
           <button className='content-section-badge' onClick={handleRefine}>Save</button>
+          <button className='content-section-badge' onClick={() => setModalOpen(true)}>Export</button>
       </section>
     </div>
 
     <aside className="editor-sidebar">
       <div className="sticky-editor">
-            <TiptapEditor content={coverLetter} /> 
+            <TiptapEditor content={coverLetter} onChange={setcoverLetter} /> 
       </div>
     </aside>
 
-
-    <section className='content-card'>
-          <button className='content-section-badge' onClick={() => setModalOpen(true)}>Export</button>
-    </section>
-
-    {/*{modalOpen &&
+    {modalOpen &&
       <div className="modal-container">
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
           <div className="modal-inner">
-                    
+              <button onClick={() => exportFile('pdf')}>Export as PDF</button>
+              <button onClick={() => exportFile('docx')}>Export as DOCX</button>
           </div>
         </Modal>
       </div>
-    } */}
+    } 
   
 
 
