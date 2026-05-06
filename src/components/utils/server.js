@@ -1,4 +1,3 @@
-// server.js
 import express from 'express'
 import puppeteer from 'puppeteer'        // PDF
 import HTMLtoDOCX from 'html-to-docx'   // DOCX
