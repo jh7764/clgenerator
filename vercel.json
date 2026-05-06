@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "api/export/pdf.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "api/export/docx.js": {
+      "memory": 512,
+      "maxDuration": 15
+    }
+  }
+}
