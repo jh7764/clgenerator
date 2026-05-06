@@ -8,5 +8,9 @@
       "memory": 512,
       "maxDuration": 15
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/api/export/pdf",  "destination": "/api/export/pdf.mjs" },
+    { "source": "/api/export/docx", "destination": "/api/export/docx.mjs" }
+  ]
 }
