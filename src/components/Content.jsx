@@ -79,22 +79,21 @@ export default function Content() {
   }
 
   const exportFile = async (type) => {
-  const res = await fetch(`/api/`, {
+  const endpoint = type === 'pdf' ? '/utils/export/pdf' : '/utils/export/docx';
+  const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ html: coverLetter })
-  })
-  const blob = await res.blob()
-  const url = URL.createObjectURL(blob)
-  console.log('fetching:', url)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `coveycl.${type === 'pdf' ? 'pdf' : 'docx'}`
-  a.click()
-  URL.revokeObjectURL(url)
-}
-
-  
+  });
+  if (!res.ok) throw new Error(`Export failed: ${res.status}`);
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `cover-letter.${type}`;
+  a.click();
+  URL.revokeObjectURL(url);
+  }
   return (
     <>
     <Header />
