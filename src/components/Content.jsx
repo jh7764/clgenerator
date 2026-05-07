@@ -79,20 +79,15 @@ export default function Content() {
   }
 
   const exportFile = async (type) => {
-  const endpoint = type === 'pdf' ? '/utils/export/pdf' : '/utils/export/docx';
-  const res = await fetch(endpoint, {
+  const res = await fetch("/api/export", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ html: coverLetter })
   });
   if (!res.ok) throw new Error(`Export failed: ${res.status}`);
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `cover-letter.${type}`;
-  a.click();
-  URL.revokeObjectURL(url);
+  
+  const result = await res.json();
+  alert(result.message);
   }
   return (
     <>
