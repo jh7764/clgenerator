@@ -79,7 +79,7 @@ export default function Content() {
   }
 
   const exportFile = async (type) => {
-  const res = await fetch(`/api/export/${type}`, {
+  const res = await fetch(`/api/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ html: coverLetter })
@@ -89,7 +89,7 @@ export default function Content() {
   console.log('fetching:', url)
   const a = document.createElement('a')
   a.href = url
-  a.download = `cover-letter.${type === 'pdf' ? 'pdf' : 'docx'}`
+  a.download = `coveycl.${type === 'pdf' ? 'pdf' : 'docx'}`
   a.click()
   URL.revokeObjectURL(url)
 }
