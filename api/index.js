@@ -23,6 +23,6 @@ app.post('/export/docx', async (req, res) => {
 
 server.middlewares.use(app)
 
-app.listen(PiOrangeThin, () => {
+app.listen(port, () => {
     console.log(`port running in http://localhost:${port}`)
 })
