@@ -1,16 +1,14 @@
 {
-  "functions": {
-    "api/export/pdf.mjs": {
-      "memory": 1024,
-      "maxDuration": 30
-    },
-    "api/export/docx.mjs": {
-      "memory": 512,
-      "maxDuration": 15
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
     }
-  },
-  "rewrites": [
-    { "source": "/api/export/pdf",  "destination": "/api/export/pdf.mjs" },
-    { "source": "/api/export/docx", "destination": "/api/export/docx.mjs" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
   ]
 }
