@@ -93,9 +93,6 @@ export default function Content() {
   a.download = "export.pdf"
   a.click();
   window.URL.revokeObjectURL(url);
-
-  const result = await res.json();
-  alert(result.message);
   }
   return (
     <>
@@ -249,7 +246,6 @@ export default function Content() {
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
           <div className="modal-inner">
               <button onClick={() => exportFile()}>Export as PDF</button>
-              <button onClick={() => exportFile()}>Export as DOCX</button>
           </div>
         </Modal>
       </div>

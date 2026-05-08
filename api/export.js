@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -16,7 +17,10 @@ export default async function handler(req, res) {
 
     //hidden chrome browser
     const browser = await puppeteer.launch({
-      headless: true,
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
     });
 
     //render browser page
