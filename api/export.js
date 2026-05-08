@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import puppeteer from "puppeteer-core";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -13,13 +14,39 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "Invalid HTML content" });
     }
 
-    const filePath = path.join("/tmp", "exported.html");
-
-    fs.writeFileSync(filePath, html, "utf8");
-
-    return res.status(200).json({
-      message: "HTML saved successfully!",
+    //hidden chrome browser
+    const browser = await puppeteer.launch({
+      headless: true,
     });
+
+    //render browser page
+    const page = await browser.newPage();
+
+    //renders html content into page
+    await page.setContent(html, {
+      waitUntil: "networkidle0",
+    });
+
+    //converts page into a pdf buffer (ie raw binary file)
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+    });
+    
+    //closes browser
+    await browser.close();
+
+    //tells browser this is a pdf
+    res.setHeader("Content-Type", "application/pdf");
+    
+    //download file
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="export.pdf"'
+    );
+
+    // Send PDF
+    return res.send(pdfBuffer);
 
   } catch (error) {
     console.error(error);

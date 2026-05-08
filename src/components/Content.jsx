@@ -86,6 +86,14 @@ export default function Content() {
   });
   if (!res.ok) throw new Error(`Export failed: ${res.status}`);
   
+  const blob = await res.blob();
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "export.pdf"
+  a.click();
+  window.URL.revokeObjectURL(url);
+
   const result = await res.json();
   alert(result.message);
   }
@@ -240,8 +248,8 @@ export default function Content() {
       <div className="modal-container">
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>  
           <div className="modal-inner">
-              <button onClick={() => exportFile('pdf')}>Export as PDF</button>
-              <button onClick={() => exportFile('docx')}>Export as DOCX</button>
+              <button onClick={() => exportFile()}>Export as PDF</button>
+              <button onClick={() => exportFile()}>Export as DOCX</button>
           </div>
         </Modal>
       </div>
