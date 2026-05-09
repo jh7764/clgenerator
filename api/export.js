@@ -17,9 +17,13 @@ export default async function handler(req, res) {
 
     //hidden chrome browser
     const browser = await puppeteer.launch({
-      args: chromium.args,
+      args: [...chromium.args,
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+      ],
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath,
+      executablePath: await chromium.executablePath(),
       headless: chromium.headless,
     });
 
@@ -57,6 +61,7 @@ export default async function handler(req, res) {
 
     return res.status(500).json({
       message: "Server error",
+      detail: error.message
     });
   }
 }
