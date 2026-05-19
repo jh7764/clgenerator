@@ -79,14 +79,19 @@ export default function Content() {
   }
 
   const exportFile = async (type) => {
+  console.log("coverletter conent: ", coverLetter?.slice(0,100));
   const res = await fetch("/api/export", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ html: coverLetter })
   });
-  if (!res.ok) throw new Error(`Export failed: ${res.status}`);
-  
+  if (!res.ok) {
+    const errtxt = await res.text();
+    console.error("Export error: ", errtxt);
+    throw new Error(`Export failed: ${res.status}`);
+  }
   const blob = await res.blob();
+  console.log("blob type: ", blob.type, "blob size: ", blob.size);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
