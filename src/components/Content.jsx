@@ -96,14 +96,9 @@ export default function Content() {
   console.log("blob type: ", blob.type, "blob size: ", blob.size);
   const url = URL.createObjectURL(blob);
   console.log("Created URL:", url); 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "export.pdf"
-  window.open(url, '_blank');
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(() => window.URL.revokeObjectURL(url), 10000);
+  const newtab = ('', '_blank');
+  newtab.location.href = url;
+  //setTimeout(() => window.URL.revokeObjectURL(url), 10000);
   }
   return (
     <>
