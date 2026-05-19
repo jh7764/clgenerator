@@ -96,8 +96,7 @@ export default function Content() {
   console.log("blob type: ", blob.type, "blob size: ", blob.size);
   const url = URL.createObjectURL(blob);
   console.log("Created URL:", url); 
-  const newtab = window.open('', '_blank');
-  newtab.location.href = url;
+  const newtab = window.open(url, '_blank');
   //setTimeout(() => window.URL.revokeObjectURL(url), 10000);
   }
   return (
