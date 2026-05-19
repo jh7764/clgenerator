@@ -87,12 +87,12 @@ export default function Content() {
   if (!res.ok) throw new Error(`Export failed: ${res.status}`);
   
   const blob = await res.blob();
-  const url = window.URL.createObjectURL(blob);
+  const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = "export.pdf"
   a.click();
-  window.URL.revokeObjectURL(url);
+  setTimeout(() => window.URL.revokeObjectURL(url));
   }
   return (
     <>
