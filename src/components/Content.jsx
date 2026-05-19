@@ -90,13 +90,17 @@ export default function Content() {
     console.error("Export error: ", errtxt);
     throw new Error(`Export failed: ${res.status}`);
   }
-  const blob = await res.blob();
+
+  const arrayBuffer = await res.arrayBuffer();
+  const blob = new Blob([arrayBuffer], {type: 'application/pdf'});
   console.log("blob type: ", blob.type, "blob size: ", blob.size);
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = "export.pdf"
+  document.body.appendChild(a);
   a.click();
+  document.body.removeChild(a);
   setTimeout(() => window.URL.revokeObjectURL(url), 200);
   }
   return (
