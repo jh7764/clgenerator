@@ -92,7 +92,7 @@ export default function Content() {
   a.href = url;
   a.download = "export.pdf"
   a.click();
-  setTimeout(() => window.URL.revokeObjectURL(url));
+  setTimeout(() => window.URL.revokeObjectURL(url), 200);
   }
   return (
     <>
