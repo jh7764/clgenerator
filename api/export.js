@@ -45,11 +45,11 @@ export default async function handler(req, res) {
     await browser.close();
 
     //tells browser this is a pdf
-    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader('Content-Type', 'application/pdf');
     
     //download file
     res.setHeader(
-      "Content-Disposition",
+      'Content-Disposition',
       'attachment; filename="export.pdf"'
     );
 
